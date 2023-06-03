@@ -1,92 +1,56 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import Link from "next/link"
-import { ClipboardCheck, Home } from "lucide-react"
-import { Menu, MenuItem, ProSidebar } from "react-pro-sidebar"
+import {
+  ClipboardCheck,
+  Home,
+  LogOutIcon,
+  MessageSquareIcon,
+  MinusCircleIcon,
+  UsersIcon,
+} from "lucide-react"
 
-// interface MenuItem {
-//   title: string
-//   path: string
-//   icon: JSX.Element
-//   selected: string
-//   setSelected(selected: string): void
-// }
+import { ThemeToggle } from "./theme-toggle"
 
-const Item = ({ title, path, icon, selected, setSelected }: any) => {
+interface ItemType {
+  path: string
+  title: string
+  icon: JSX.Element
+}
+
+const Item = ({ path, title, icon }: ItemType) => {
   return (
-    <MenuItem
-      active={selected === title}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <Link href={path}>
-        <p>{title}</p>
-      </Link>
-    </MenuItem>
+    <Link href={path} className="flex flex-row gap-2">
+      {icon}
+      {title}
+    </Link>
   )
 }
 
 export default function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false)
-  const [selected, setSelected] = useState("Beranda")
-
   return (
-    <div className="">
-      <ProSidebar collapsed={isCollapsed}>
-        <Menu>
-          <MenuItem onClick={() => setIsCollapsed(!isCollapsed)}>
-            <h1>Hima</h1>
-            <p>Menu</p>
-          </MenuItem>
-        </Menu>
-        {/* Item Menu */}
-        <div>
-          <Item
-            title="Beranda"
-            path="/beranda"
-            icon={<i className="fas fa-tachometer-alt"></i>}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item
-            title="Tugas"
-            path="/tugas"
-            icon={<i className="fas fa-users"></i>}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item
-            title="Acara"
-            path="/acara"
-            icon={<i className="fas fa-cog"></i>}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item
-            title="Tim"
-            path="/tim"
-            icon={<i className="fas fa-sign-out-alt"></i>}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item
-            title="Poin"
-            path="/poin"
-            icon={<i className="fas fa-sign-out-alt"></i>}
-            selected={selected}
-            setSelected={setSelected}
-          />
-          <Item
-            title="Kritik"
-            path="/kritik"
-            icon={<i className="fas fa-sign-out-alt"></i>}
-            selected={selected}
-            setSelected={setSelected}
-          />
-        </div>
-        {/* Lainnya */}
-      </ProSidebar>
+    <div className="flex h-screen w-48 flex-col items-center">
+      <h1 className="mt-7 text-4xl ">Hima</h1>
+      {/* Item Menu */}
+      <div className="mt-9 flex flex-col gap-7 ">
+        <p>Menu</p>
+        <Item path="/" title="Beranda" icon={<Home />} />
+        <Item path="tugas" title="Tugas" icon={<ClipboardCheck />} />
+        <Item path="acara" title="Acara" icon={<UsersIcon />} />
+        <Item path="tim" title="Tim" icon={<UsersIcon />} />
+        <Item path="poin" title="Poin" icon={<MinusCircleIcon />} />
+        <Item path="kritik" title="Kritik" icon={<MessageSquareIcon />} />
+      </div>
+      {/* Lainnya */}
+      <div className="mt-20 flex flex-col gap-7 ">
+        <p>Lainnya</p>
+        <ThemeToggle />
+        <Link href="/tugas" className="flex flex-row gap-2">
+          <LogOutIcon />
+          Keluar
+        </Link>
+      </div>
     </div>
   )
 }

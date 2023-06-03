@@ -35,12 +35,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <html lang="en" suppressHydrationWarning>
         <head />
-        <body
-          className='flex'
-        >
+        <body className="flex">
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <Sidebar />
-            <div className="">
+            <div className="w-full">
               <SiteHeader />
               <div className="">{children}</div>
             </div>
