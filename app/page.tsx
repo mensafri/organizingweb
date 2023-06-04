@@ -63,7 +63,7 @@ interface ItemTimType {
 
 const ItemTim = ({ nama, jabatan }: ItemTimType) => {
   return (
-    <div className="flex flex-row">
+    <div className="ml-5 flex flex-row">
       <Avatar>
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
         <AvatarFallback>CN</AvatarFallback>
@@ -211,7 +211,7 @@ export default function IndexPage() {
           <p className="text-3xl font-bold">Tim</p>
           <Link href="tim">Lihat Semua</Link>
         </div>
-        <div className="grid grid-cols-1 place-items-center justify-center gap-2 rounded-xl bg-[#F5F5F5] p-5">
+        <div className="grid grid-cols-1 place-items-start justify-center gap-2 rounded-xl bg-[#F5F5F5] p-4">
           <ItemTim nama="Yefi Afiatul Ardhani" jabatan="Ketua" />
           <ItemTim nama="Taufikur Rohman" jabatan="Wakil Ketua" />
           <ItemTim nama="Moch Ichwan" jabatan="Sekretaris II" />
