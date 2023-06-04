@@ -30,7 +30,7 @@ const Item = ({ path, title, icon }: ItemType) => {
 
 export default function Sidebar() {
   return (
-    <div className="flex h-screen w-48 flex-col items-center">
+    <div className="flex h-screen w-56 flex-col items-center">
       <h1 className="mt-7 text-4xl ">Hima</h1>
       {/* Item Menu */}
       <div className="mt-9 flex flex-col gap-7 ">

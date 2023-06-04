@@ -12,12 +12,12 @@ import {
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <nav className="mt-8 flex gap-10">
+    <header className="sticky top-0 z-40 w-full bg-background">
+      <nav className="ml-10 mt-8  flex gap-10">
         <Input placeholder="Cari nama, tugas, acara...." />
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline" className="w-10 rounded-full p-0">
+            <Button variant="outline" className="w-14 rounded-full p-0">
               <Bell className="h-4 w-4" />
               <span className="sr-only">Open popover</span>
             </Button>
@@ -77,7 +77,7 @@ export function SiteHeader() {
         </div>
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="outline" className="mr-10 w-10 rounded-full p-0 ">
+            <Button variant="outline" className="mr-10 w-14 rounded-full p-0 ">
               <Menu className="h-4 w-4" />
               <span className="sr-only">Open popover</span>
             </Button>
