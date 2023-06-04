@@ -13,13 +13,15 @@ import {
 
 import { ThemeToggle } from "./theme-toggle"
 
-interface ItemType {
+// import ItemSidebar from './sidebar'
+
+interface ItemSidebarType {
   path: string
   title: string
   icon: JSX.Element
 }
 
-const Item = ({ path, title, icon }: ItemType) => {
+const ItemSidebar = ({ path, title, icon }: ItemSidebarType) => {
   return (
     <Link href={path} className="flex flex-row gap-2">
       {icon}
@@ -35,12 +37,16 @@ export default function Sidebar() {
       {/* Item Menu */}
       <div className="mt-9 flex flex-col gap-7 ">
         <p>Menu</p>
-        <Item path="/" title="Beranda" icon={<Home />} />
-        <Item path="tugas" title="Tugas" icon={<ClipboardCheck />} />
-        <Item path="acara" title="Acara" icon={<UsersIcon />} />
-        <Item path="tim" title="Tim" icon={<UsersIcon />} />
-        <Item path="poin" title="Poin" icon={<MinusCircleIcon />} />
-        <Item path="kritik" title="Kritik" icon={<MessageSquareIcon />} />
+        <ItemSidebar path="/" title="Beranda" icon={<Home />} />
+        <ItemSidebar path="tugas" title="Tugas" icon={<ClipboardCheck />} />
+        <ItemSidebar path="acara" title="Acara" icon={<UsersIcon />} />
+        <ItemSidebar path="tim" title="Tim" icon={<UsersIcon />} />
+        <ItemSidebar path="poin" title="Poin" icon={<MinusCircleIcon />} />
+        <ItemSidebar
+          path="kritik"
+          title="Kritik"
+          icon={<MessageSquareIcon />}
+        />
       </div>
       {/* Lainnya */}
       <div className="mt-20 flex flex-col gap-7 ">

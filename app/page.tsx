@@ -25,25 +25,6 @@ interface ItemAcaraType {
   tempat: string
   waktu: string
 }
-interface ItemTimType {
-  nama: string
-  jabatan: string
-}
-
-const ItemTim = ({ nama, jabatan }: ItemTimType) => {
-  return (
-    <div className="flex flex-row">
-      <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
-      <div className="ml-4 flex flex-col">
-        <p className="font-bold">{nama}</p>
-        <p className="font-light">{jabatan}</p>
-      </div>
-    </div>
-  )
-}
 
 const ItemAcara = ({ tgl, bulan, nama, tempat, waktu }: ItemAcaraType) => {
   return (
@@ -71,6 +52,25 @@ const ItemAcara = ({ tgl, bulan, nama, tempat, waktu }: ItemAcaraType) => {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
+      </div>
+    </div>
+  )
+}
+interface ItemTimType {
+  nama: string
+  jabatan: string
+}
+
+const ItemTim = ({ nama, jabatan }: ItemTimType) => {
+  return (
+    <div className="flex flex-row">
+      <Avatar>
+        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
+      <div className="ml-4 flex flex-col">
+        <p className="font-bold">{nama}</p>
+        <p className="font-light">{jabatan}</p>
       </div>
     </div>
   )
