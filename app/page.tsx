@@ -7,6 +7,7 @@ import {
   XCircle,
 } from "lucide-react"
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 
 export default function IndexPage() {
@@ -91,12 +92,23 @@ export default function IndexPage() {
             <div className="flex flex-col rounded-xl bg-[#FFFFFF] p-6"></div>
           </div>
         </div>
-        <h1 className="text-4xl font-bold">Poin</h1>
+        <h1 className="mt-2 text-4xl font-bold">Poin</h1>
         <div className="flex flex-row justify-between">
           <p className="font-light">
             Menampilkan poin pelanggaran selama menjabat
           </p>
           <Link href="poin">Lihat Semua</Link>
+        </div>
+        <div className="mt-4 flex flex-row justify-between rounded-xl bg-[#F5F5F5] p-4">
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+          <div className="mr-52 flex flex-col">
+            <p className="text font-bold">Yefi Afiatul Ardhani</p>
+            <p className="text font-light">Ketua</p>
+          </div>
+          <div className="ml-96 rounded-xl bg-[#ffffff] px-4 py-2">0 Poin</div>
         </div>
       </div>
 
