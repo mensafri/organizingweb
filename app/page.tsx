@@ -113,7 +113,22 @@ export default function IndexPage() {
       </div>
 
       {/* Acara dan Tim */}
-      <div></div>
+      <div className="ml-16 p-5">
+        <div className="flex flex-row justify-between">
+          <p className="font-bold">Acara</p>
+          <Link href="poin">Lihat Semua</Link>
+        </div>
+        <div className="mt-4 flex flex-row justify-between rounded-xl bg-[#F5F5F5] p-4">
+
+        </div>
+        <div className="flex flex-row justify-between">
+          <p className="font-bold">Tim</p>
+          <Link href="poin">Lihat Semua</Link>
+        </div>
+        <div className="mt-4 flex flex-row justify-between rounded-xl bg-[#F5F5F5] p-4">
+
+        </div>
+      </div>
     </>
   )
 }
