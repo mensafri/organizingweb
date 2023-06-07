@@ -11,24 +11,8 @@ import {
   Users,
 } from "lucide-react"
 
+import ItemSidebar from "./itemsidebar"
 import { ThemeToggle } from "./theme-toggle"
-
-// import ItemSidebar from './sidebar'
-
-interface ItemSidebarType {
-  path: string
-  title: string
-  icon: JSX.Element
-}
-
-const ItemSidebar = ({ path, title, icon }: ItemSidebarType) => {
-  return (
-    <Link href={path} className="flex flex-row gap-2">
-      {icon}
-      {title}
-    </Link>
-  )
-}
 
 export default function Sidebar() {
   return (
