@@ -1,6 +1,7 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
+import { addOrganization, getOrganizations } from "@/firebase/organizations"
 import { addUsers } from "@/firebase/users"
 
 export default function Acara() {
@@ -26,10 +27,14 @@ export default function Acara() {
     setPassword(e.target.value)
   }
 
+  useEffect(() => {
+    getOrganizations()
+  }, [name])
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    addUsers(org, div, name, email, password)
+    addOrganization(name)
 
     setOrg("")
     setDiv("")
