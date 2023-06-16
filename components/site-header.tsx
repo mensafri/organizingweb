@@ -68,7 +68,7 @@ export function SiteHeader() {
           </PopoverContent>
         </Popover>
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+          <AvatarImage src="https://firebasestorage.googleapis.com/v0/b/galeri-kelas.appspot.com/o/files%2FScreenshot%202023-06-16%20093230.png?alt=media&token=0ff34555-3a68-448c-9da0-765b58118178" alt="@shadcn" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div className="flex w-52 flex-col">

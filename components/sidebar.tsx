@@ -17,7 +17,7 @@ import { ThemeToggle } from "./theme-toggle"
 export default function Sidebar() {
   return (
     <div className="flex h-screen w-56 flex-col items-center">
-      <h1 className="mt-7 text-4xl ">Hima</h1>
+      <h1 className="mt-7 text-4xl ">Himafor</h1>
       {/* Item Menu */}
       <div className="mt-9 flex flex-col gap-7 ">
         <p>Menu</p>
