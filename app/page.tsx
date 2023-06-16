@@ -151,9 +151,9 @@ export default function IndexPage() {
           <Link href="tim">Lihat Semua</Link>
         </div>
         <div className="grid grid-cols-1 place-items-start justify-center gap-2 rounded-xl bg-[#F5F5F5] p-4">
-          <ItemTim nama="Yefi Afiatul Ardhani" jabatan="Ketua" />
           <ItemTim nama="Taufikur Rohman" jabatan="Wakil Ketua" />
           <ItemTim nama="Moch Ichwan" jabatan="Sekretaris II" />
+          <ItemTim nama="Ahmad Najib" jabatan="Anggota PSDM" />
         </div>
       </div>
     </>
