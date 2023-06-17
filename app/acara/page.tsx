@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { addOrganization, getOrganizations } from "@/firebase/organizations"
+import { addDivisions } from "@/firebase/divisions"
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -16,7 +16,9 @@ export default function Acara() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -26,13 +28,12 @@ export default function Acara() {
       const user = res?.user
 
       if (user) {
-        console.log(
-          await createUserDocumentFromAuth(user, {
-            displayName,
-            namaOrg,
-            namaDiv,
-          })
-        )
+        await createUserDocumentFromAuth(user, {
+          displayName,
+          namaOrg,
+          namaDiv,
+        })
+        addDivisions(namaOrg, namaDiv)
       }
     } catch (error) {
       console.log("error di signup", error)

@@ -8,6 +8,7 @@ const collection_name: string = "divisions"
 export const addDivisions = async (orgName: string, name: string) => {
   try {
     await addDoc(collection(db, collection_name), {
+      orgName: orgName,
       name: name,
     })
     await addOrganization(orgName)
@@ -15,5 +16,3 @@ export const addDivisions = async (orgName: string, name: string) => {
     console.log("error adding division", error)
   }
 }
-
-export const getDivisionsByOrgId = async (orgId: string) => {}
