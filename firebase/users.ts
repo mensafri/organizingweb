@@ -55,7 +55,7 @@ export const getUsers = async () => {
   }
 }
 
-export const auth = getAuth()
+export const auth = getAuth();
 
 export type additionalInformation = {
   displayName?: string
@@ -102,7 +102,7 @@ export const createAuthUserWithEmailAndPassword = async (
   email: string,
   password: string
 ) => {
-  if (!email || !password) return
+  if (!email || !password) return;
 
-  return await createUserWithEmailAndPassword(auth, email, password)
-}
+  return await createUserWithEmailAndPassword(auth, email, password);
+};

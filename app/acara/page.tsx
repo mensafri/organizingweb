@@ -2,23 +2,41 @@
 
 import React, { useEffect, useState } from "react"
 import { addOrganization, getOrganizations } from "@/firebase/organizations"
-import { addUsers, getUsers } from "@/firebase/users"
+import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
+} from "@/firebase/users"
+
+// import { addUsers, getUsers } from "@/firebase/users"
 
 export default function Acara() {
-  const [orgName, setOrgName] = useState("")
-  const [divname, setDivname] = useState("")
-  const [name, setName] = useState("")
+  const [namaOrg, setOrgName] = useState("")
+  const [namaDiv, setDivname] = useState("")
+  const [displayName, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  useEffect(() => {
-    getUsers()
-  }, [])
+  useEffect(() => {}, [])
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    addUsers(orgName, divname, name, email, password)
+    try {
+      const res = await createAuthUserWithEmailAndPassword(email, password)
+      const user = res?.user
+
+      if (user) {
+        console.log(
+          await createUserDocumentFromAuth(user, {
+            displayName,
+            namaOrg,
+            namaDiv,
+          })
+        )
+      }
+    } catch (error) {
+      console.log("error di signup", error)
+    }
 
     setOrgName("")
     setDivname("")
@@ -32,7 +50,7 @@ export default function Acara() {
       <form className="ml-9 mt-9 flex flex-col gap-8" onSubmit={handleSubmit}>
         <input
           type="text"
-          value={orgName}
+          value={namaOrg}
           onChange={(e) => {
             setOrgName(e.target.value)
           }}
@@ -40,7 +58,7 @@ export default function Acara() {
         />
         <input
           type="text"
-          value={divname}
+          value={namaDiv}
           onChange={(e) => {
             setDivname(e.target.value)
           }}
@@ -48,7 +66,7 @@ export default function Acara() {
         />
         <input
           type="text"
-          value={name}
+          value={displayName}
           onChange={(e) => {
             setName(e.target.value)
           }}
