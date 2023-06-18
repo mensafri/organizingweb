@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { addDivisions } from "@/firebase/divisions"
+import { addDivisions, checkDivisions } from "@/firebase/divisions"
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
