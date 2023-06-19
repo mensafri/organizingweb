@@ -6,57 +6,49 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "@/firebase/users"
-import DateTimePicker from "react-datetime-picker"
 
 // import { addUsers, getUsers } from "@/firebase/users"
 
 export default function Beranda() {
-  // const [namaOrg, setOrgName] = useState("")
-  // const [namaDiv, setDivname] = useState("")
-  // const [displayName, setName] = useState("")
-  // const [email, setEmail] = useState("")
-  // const [password, setPassword] = useState("")
-  const [datePicked, setDatePicked] = useState<Date | null>(null);
+  const [namaOrg, setOrgName] = useState("")
+  const [namaDiv, setDivname] = useState("")
+  const [displayName, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
-  // useEffect(() => {}, [])
+  useEffect(() => {
 
-  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault()
+  }, [])
 
-  //   try {
-  //     const res = await createAuthUserWithEmailAndPassword(email, password)
-  //     const user = res?.user
-
-  //     if (user) {
-  //       await createUserDocumentFromAuth(user, {
-  //         displayName,
-  //         namaOrg,
-  //         namaDiv,
-  //       })
-  //       addDivisions(namaOrg, namaDiv)
-  //     }
-  //   } catch (error) {
-  //     console.log("error di signup", error)
-  //   }
-
-  //   setOrgName("")
-  //   setDivname("")
-  //   setName("")
-  //   setEmail("")
-  //   setPassword("")
-  // }
-
-  const handleDateChange = (date: Date | null) => setDatePicked(date);
-
-  const handleSubmit2 = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    console.log(datePicked)
+    try {
+      const res = await createAuthUserWithEmailAndPassword(email, password)
+      const user = res?.user
+
+      if (user) {
+        await createUserDocumentFromAuth(user, {
+          displayName,
+          namaOrg,
+          namaDiv,
+        })
+        addDivisions(namaOrg, namaDiv)
+      }
+    } catch (error) {
+      console.log("error di signup", error)
+    }
+
+    setOrgName("")
+    setDivname("")
+    setName("")
+    setEmail("")
+    setPassword("")
   }
 
   return (
     <div>
-      {/* <form className="ml-9 mt-9 flex flex-col gap-8" onSubmit={handleSubmit}>
+      <form className="ml-9 mt-9 flex flex-col gap-8" onSubmit={handleSubmit}>
         <input
           type="text"
           value={namaOrg}
@@ -98,12 +90,6 @@ export default function Beranda() {
           placeholder="password"
         />
         <button type="submit">Test</button>
-      </form> */}
-      <form onSubmit={handleSubmit2} className="ml-10 mt-5">
-        <div className="p-5">
-          <DateTimePicker onChange={handleDateChange} value={datePicked} minDate={new Date()}/>
-        </div>
-        <button type="submit">Test tgl</button>
       </form>
     </div>
   )
