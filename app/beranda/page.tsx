@@ -1,11 +1,14 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { addDivisions, checkDivisions } from "@/firebase/divisions"
+import { addDivisions } from "@/firebase/divisions"
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "@/firebase/users"
+
+import { DatePickerFix } from "@/components/datepicker"
+
 
 // import { addUsers, getUsers } from "@/firebase/users"
 
@@ -15,10 +18,15 @@ export default function Beranda() {
   const [displayName, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [time, setTime] = useState<Date | null>(new Date())
 
-  useEffect(() => {
+  const handleTimeChange = (value: string | Date | null) => {
+    if (value instanceof Date) {
+      setTime(value)
+    }
+  }
 
-  }, [])
+  useEffect(() => {}, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -90,6 +98,12 @@ export default function Beranda() {
           placeholder="password"
         />
         <button type="submit">Test</button>
+      </form>
+      <form className="m-7 p-5">
+        <DatePickerFix />
+        <div className="m-10">
+
+        </div>
       </form>
     </div>
   )
