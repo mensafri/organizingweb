@@ -1,23 +1,11 @@
-import {
-  User,
-  createUserWithEmailAndPassword,
-  getAuth,
-} from "firebase/auth"
-import {
-  QueryDocumentSnapshot,
-  addDoc,
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  setDoc,
-} from "firebase/firestore"
+import { User, createUserWithEmailAndPassword, getAuth } from "firebase/auth"
+import { QueryDocumentSnapshot, doc, getDoc, setDoc } from "firebase/firestore"
 
 import { db } from "./firebaseInit"
 
 const collection_name: string = "users"
 
-export const auth = getAuth();
+export const auth = getAuth()
 
 export type additionalInformation = {
   displayName?: string
@@ -64,7 +52,7 @@ export const createAuthUserWithEmailAndPassword = async (
   email: string,
   password: string
 ) => {
-  if (!email || !password) return;
+  if (!email || !password) return
 
-  return await createUserWithEmailAndPassword(auth, email, password);
-};
+  return await createUserWithEmailAndPassword(auth, email, password)
+}
