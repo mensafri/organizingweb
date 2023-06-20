@@ -9,7 +9,6 @@ import {
 
 import { DatePickerFix } from "@/components/datepicker"
 
-
 // import { addUsers, getUsers } from "@/firebase/users"
 
 export default function Beranda() {
@@ -18,12 +17,10 @@ export default function Beranda() {
   const [displayName, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [time, setTime] = useState<Date | null>(new Date())
+  const [time, setTime] = useState<string>("")
 
-  const handleTimeChange = (value: string | Date | null) => {
-    if (value instanceof Date) {
-      setTime(value)
-    }
+  const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTime(event.target.value)
   }
 
   useEffect(() => {}, [])
@@ -52,6 +49,12 @@ export default function Beranda() {
     setName("")
     setEmail("")
     setPassword("")
+  }
+
+  const handleSubmit2 = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log(time)
   }
 
   return (
@@ -99,11 +102,12 @@ export default function Beranda() {
         />
         <button type="submit">Test</button>
       </form>
-      <form className="m-7 p-5">
+      <form className="m-7 p-5" onSubmit={handleSubmit2}>
         <DatePickerFix />
         <div className="m-10">
-
+          <input type="time" value={time} onChange={handleTimeChange} />
         </div>
+        <button type="submit">Test22</button>
       </form>
     </div>
   )
