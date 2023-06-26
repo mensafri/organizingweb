@@ -52,7 +52,7 @@ export default function Beranda() {
   }
 
   const handleSubmit2 = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
 
     console.log(time)
   }
